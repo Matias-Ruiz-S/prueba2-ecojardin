@@ -9,9 +9,61 @@
     <link rel="stylesheet" href="css/fontello.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-</head>
+    <style>
+      .error {
+        color: red;
+        padding-left: 12px;
+      }
+    </style>
+  </head>
 
 <body>
+  <style type="text/css">
+    body{
+      padding-top: 0px;
+    }
+    #container {
+      -o-box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      -o-border-radius: 10px;
+      -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -moz-box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 18px;
+    margin: 0 auto;
+    padding: 30px;
+    width: 350px;
+    }
+    .campo{
+      border: solid 4px #cece76;
+      font-size: 18px;
+      padding: 10px;
+      margin-bottom: 35px;
+      width: 300px;
+    }
+    .boton{
+      background: #849175;
+      border: solid 0;
+      color: #fff;
+      padding: 10px;
+    }
+    .errores{
+      background: red;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      color: #fff;
+      display: none;
+      font-size: 14px;
+      margin-top: -80px;
+      margin-left: 340px;
+      padding: 10 px;
+      position: absolute;
+
+    }
+  </style>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     
@@ -43,32 +95,111 @@
 <main>
     
   <h2>Formulario de contacto</h2>
-  <p></p>
-  <div id="container"> 
-     <form id="Formulario">
+  <br><br>
+     <form action="#" id="frmDatos">
       <label for="Nombre">Nombre: </label><br>
-      <input type="text" name="Nombre" placeholder="Ingresa tu Nombre"><br>
-      <div id="mensaje1" class="errores">Dame tu nombre</div>
-      <br>
+      <input type="text" id="Nombre" placeholder="Ingresa tu Nombre"><br>
+      <span class="error">El campo es obligatorio</span>
+      <br><br>
       <label for="Apellido">Apellido: </label><br>
-      <input type="text" name="Apellido" placeholder="Ingresa tu Apellido"><br>
-      <div id="mensaje2" class="errores">Dame tu Apellido</div>
-      <br>
+      <input type="text" id="Apellido" placeholder="Ingresa tu Apellido"><br>
+      <span class="error">El campo es obligatorio</span>
+      <br><br>
+      <label for="Email">Email: </label><br>
+      <input type="text" id="Email" placeholder="Ingresa tu Email"><br>
+      <span class="error">El campo es obligatorio</span>
+      <br><br>
       <label for="Rut">RUT: </label><br>
-      <input type="text" name="rut" placeholder="Ingresa tu Rut"><br>
-      <div id="mensaje3" class="errores">Dame un rut valido</div>
-      <br>
+      <input type="text" id="rut" placeholder="Ingresa tu Rut"><br>
+      <span class="error">Dame un rut valido</span>
+      <br><br>
       <label for="Contraseña">Contraseña: </label><br>
-      <input type="text" name="Contraseña" placeholder="Ingrese su contraseña"><br>
-      <div id="mensaje4" class="errores">Dame una contraseña</div>
-      <br>
+      <input type="text" id="Contraseña" placeholder="Ingrese su contraseña"><br>
+      <span class="error">Dame una contraseña</span>
+      <br><br>
       <label for="Confirme su contraseña">Confirme su contraseña: </label><br>
-      <input type="text" name="Confirme su contraseña" placeholder="Confirme su contraseña">
-      <div id="mensaje5" class="errores">Las contraseñas deben coincidir</div>
-      <br>
+      <input type="text" id="Confirme su contraseña" placeholder="Confirme su contraseña"><br>
+      <span class="error">La contraseña debe coincidir</span>
+      <br><br>
+      <body onload="getCaptchat()">
+      <table style="border:2px solid black;">
+        <tr>
+          <td>Captchat</td>
+          <td>
+            <canvas width="220" height="60" style="border: 2px solid green; " id="canvas"></canvas>
+          </td>
+          <td>
+            <button type="button" onclick="getCaptchat()">Refresh</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Enter Captchat
+          </td>
+          <td><input type="text" size="30"  id="typedText"></td>
+          <td><button onclick="checkIt()">Check</button></td>
+        </tr>
+
+      </table>
+      <script>
+        function getRandIndex(maxLength){
+          return Math.floor(Math.random()*maxLength);
+
+        }
+        var data;
+
+        function getCaptchat(){
+          var canvas = document.getElementById('canvas');
+          var pen = canvas.getContext('2d');
+          var captch = Math.random().toString(36).substring(2, 10);
+
+
+          pen.font = "30px Georgia";
+          pen.fillStyle = "green";
+          pen.fillRect(0, 0, 400, 400);
+          pen.fillStyle = "white";
+          maxLength = captch.length;
+          index1 = getRandIndex(maxLength);
+          index2 = getRandIndex(maxLength);
+
+          captch = captch.substring(0, index1-1)+captch[index1].toUpperCase()+captch.substring(index1+1, maxLength);
+          captch = captch.substring(0, index2-1)+captch[index2].toUpperCase()+captch.substring(index2+1, maxLength);
+        
+          data = captch;
+          captch = captch.split('').join('');
+          pen.fillText(captch, 40, 40)
+        }
+
+      </script>
+    
+    </body>
+      <br><br>
       <input type="submit" value="Enviar">
     
   </form>
+  <script>
+    $(document).ready(()  => {
+      $(".error").hide();
+      $("#frmDatos").submit(function(evento) {
+        let Nombre = $("Nombre").val();
+        let Email = $("Email").val();
+        let Apellido = $("Apellido").val();
+        let Rut = $("Rut").val();
+        let Contraseña = $("Contraseña").val();
+        let Confirme_su_contraseña = $("Confirme su contraseña").val();
+
+        if (Nombre.length < 5) {
+          $(".error").show();
+          return;
+        }
+        
+
+      });
+
+    });
+  </script>
+
+ 
   
 </main>
 <footer>
