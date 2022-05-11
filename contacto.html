@@ -35,16 +35,16 @@
                 <a class="nav-link" href="tierradehoja.html">Tierra de hoja</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="contacto.html">Contacto</a>
+                <a class="nav-link active" href="contacto.html">Registro</a>
               </li>
             </ul>
           </div>
         </div>
     </nav>
 <main>
-  <h2>Formulario de contacto</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id laborum eaque impedit, iure exercitationem fugiat quos,
-     atque at nisi unde odit ullam libero quod, provident quo minus aliquid ea! Cum?</p>
+  <div class="container">
+  <h2>Formulario de registro</h2>
+  <p>Cree una cuenta de EcoJardín para recibir novedades en su correo electrónico, junto con ofertas y promociones exclusivas</p>
   <form action="/action_page.php">
     <label for="Nombre">Nombre: </label><br>
     <input type="text" name="Nombre" placeholder="Ingresa tu Nombre">
@@ -59,11 +59,22 @@
     <input type="text" name="Contraseña" placeholder="Ingrese su contraseña">
     <br>
     <label for="Confirme su contraseña">Confirme su contraseña: </label><br>
-    <input type="text" name="Confirme su contraseña" placeholder="Confirme su contraaseña">
+    <input type="text" name="Confirme su contraseña" placeholder="Confirme su contraseña"><br>
+    <label for="Confirme su contraseña">Complete el captcha: </label><br>
+    <script type="text/javascript">
+      function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min; // The maximum is exclusive and the minimum is inclusive
+      }
+      
+      document.write('<img src="img/captcha' + getRandomInt(1, 5) + '.jpg">')
+      </script><br><br>
+    <input type="text" name="Ingrese el captcha" placeholder="Ingrese el captcha">
     <br><br>
     <input type="submit" value="Enviar">
   </form>
-     
+</div>
 </main>
 <footer>
   <section id="numero">
