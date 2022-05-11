@@ -170,6 +170,19 @@
           pen.fillText(captch, 40, 40)
         }
 
+        function checkIt(){
+          typedData = document.getElementById('typedText').value;
+          if(typedData==data){
+            alert('correcto');
+            getCaptchat();
+            document.getElementById('typedText').value = "";
+          }
+          else{
+            alert("Incorrecto");
+            getCaptchat();
+          }
+        }
+
       </script>
     
     </body>
