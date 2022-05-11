@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/fontello.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
 </head>
 
 <body>
@@ -43,28 +42,35 @@
         </div>
     </nav>
 <main>
+    
   <h2>Formulario de contacto</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id laborum eaque impedit, iure exercitationem fugiat quos,
-     atque at nisi unde odit ullam libero quod, provident quo minus aliquid ea! Cum?</p>
-  <form action="/action_page.php">
-    <label for="Nombre">Nombre: </label><br>
-    <input type="text" name="Nombre" placeholder="Ingresa tu Nombre">
-    <br>
-    <label for="Apellido">Apellido: </label><br>
-    <input type="text" name="Apellido" placeholder="Ingresa tu Apellido">
-    <br><br>
-    <label for="Rut">RUT: </label><br>
-    <input type="text" name="rut" placeholder="Ingresa tu Rut">
-    <br><br>
-    <label for="Contraseña">Contraseña: </label><br>
-    <input type="text" name="Contraseña" placeholder="Ingrese su contraseña">
-    <br>
-    <label for="Confirme su contraseña">Confirme su contraseña: </label><br>
-    <input type="text" name="Confirme su contraseña" placeholder="Confirme su contraaseña">
-    <br><br>
-    <input type="submit" value="Enviar">
+  <p></p>
+  <div id="container"> 
+     <form id="Formulario">
+      <label for="Nombre">Nombre: </label><br>
+      <input type="text" name="Nombre" placeholder="Ingresa tu Nombre"><br>
+      <div id="mensaje1" class="errores">Dame tu nombre</div>
+      <br>
+      <label for="Apellido">Apellido: </label><br>
+      <input type="text" name="Apellido" placeholder="Ingresa tu Apellido"><br>
+      <div id="mensaje2" class="errores">Dame tu Apellido</div>
+      <br>
+      <label for="Rut">RUT: </label><br>
+      <input type="text" name="rut" placeholder="Ingresa tu Rut"><br>
+      <div id="mensaje3" class="errores">Dame un rut valido</div>
+      <br>
+      <label for="Contraseña">Contraseña: </label><br>
+      <input type="text" name="Contraseña" placeholder="Ingrese su contraseña"><br>
+      <div id="mensaje4" class="errores">Dame una contraseña</div>
+      <br>
+      <label for="Confirme su contraseña">Confirme su contraseña: </label><br>
+      <input type="text" name="Confirme su contraseña" placeholder="Confirme su contraseña">
+      <div id="mensaje5" class="errores">Las contraseñas deben coincidir</div>
+      <br>
+      <input type="submit" value="Enviar">
+    
   </form>
-     
+  
 </main>
 <footer>
   <section id="numero">
